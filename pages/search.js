@@ -3,12 +3,11 @@ import Header from "../components/Header";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import SearchMap from "../components/SearchMap";
 
 function Search({ searchResults }) {
 	const router = useRouter();
 	const { location, startDate, endDate, noOfGuests } = router.query;
-
-	console.log(searchResults);
 
 	const formattedStartDate = format(new Date(startDate), "dd MMM yy");
 	const formattedEndDate = format(new Date(endDate), "dd MMM yy");
@@ -39,7 +38,12 @@ function Search({ searchResults }) {
 						))}
 					</div>
 				</section>
+
+				<section className="hidden xl:inline-flex xl:min-w-[500px] h-screen">
+					<SearchMap searchResults={searchResults} />
+				</section>
 			</main>
+
 			<Footer />
 		</div>
 	);
