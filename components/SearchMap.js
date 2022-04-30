@@ -32,13 +32,13 @@ function SearchMap({ searchResults }) {
 					</Marker>
 
 					{/* Popup that should show if we click a marker */}
-					{selectedLocation.long === result.long ? (
-						<Popup onClose={() => setSelectedLocation({})} closeOnClick={true} latitude={result.lat} longitude={result.long}>
-							{result.title}
-						</Popup>
-					) : (
-						false
-					)}
+					{/* {selectedLocation.long === result.long ? ( */}
+					<Popup onClose={() => setSelectedLocation({})} closeOnClick={false} latitude={result.lat} longitude={result.long} style={{ fontWeight: "bold" }}>
+						{result.price}
+					</Popup>
+					{/* ) : ( */}
+					{/* false */}
+					{/* )} */}
 				</div>
 			))}
 		</Map>
